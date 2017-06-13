@@ -451,13 +451,13 @@ var resizePizzas = function(size) {
   // I found it unnecessary to calculate dx in the loop and use DOM selector every time
   // so I use stored variable for calculation
   function changePizzaSizes(size) {
-    var dx = determineDx(randomContainer['width'], randomContainer['parentWidth'], size);
+    var dx = determineDx(randomContainer.width, randomContainer.parentWidth, size);
     var containers = document.querySelectorAll(".randomPizzaContainer") || [];
-    var newwidth = (randomContainer['width'] + dx) + 'px';
+    var newwidth = (randomContainer.width + dx) + 'px';
     Array.prototype.map.call(containers, function(container){
       container.style.width = newwidth;
-    })
-    randomContainer['width'] = parseFloat(newwidth);
+    });
+    randomContainer.width = parseFloat(newwidth);
   }
 
   changePizzaSizes(size);
@@ -536,7 +536,7 @@ var movers, scrollTop, ticking = false;
 var randomContainer = {
   width: '',
   parentWidth: ''
-}
+};
 function pageInit() {
   // Generates the sliding pizzas when the page loads.
   var cols = 8;
@@ -554,8 +554,8 @@ function pageInit() {
   //initiated the variables when DOM is ready
   movers = document.querySelectorAll('.mover');
   scrollTop = 0;
-  randomContainer['width'] = parseFloat(getComputedStyle(document.querySelectorAll(".randomPizzaContainer")[0]).width);
-  randomContainer['parentWidth'] = parseFloat(getComputedStyle(document.getElementById("randomPizzas")).width);
+  randomContainer.width = parseFloat(getComputedStyle(document.querySelectorAll(".randomPizzaContainer")[0]).width);
+  randomContainer.parentWidth = parseFloat(getComputedStyle(document.getElementById("randomPizzas")).width);
   
   updatePositions(movers, scrollTop);
 }
@@ -570,14 +570,14 @@ document.addEventListener('DOMContentLoaded', function() {
       scrollTop = document.body.scrollTop;
       window.requestAnimationFrame(function() {
         updatePositions(movers, scrollTop);
-      })
-      ticking = true
+      });
+      ticking = true;
     }
   });
 
   // something robusted the pizza resize function
   window.addEventListener('resize', function() {
-    randomContainer['width'] = parseFloat(getComputedStyle(document.querySelectorAll(".randomPizzaContainer")[0]).width);
-    randomContainer['parentWidth'] = parseFloat(getComputedStyle(document.getElementById("randomPizzas")).width);
+    randomContainer.width = parseFloat(getComputedStyle(document.querySelectorAll(".randomPizzaContainer")[0]).width);
+    randomContainer.parentWidth = parseFloat(getComputedStyle(document.getElementById("randomPizzas")).width);
   });
 });
