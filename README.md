@@ -45,7 +45,7 @@ used gulp to minimize the html, js and css.
 
 - optimized event on resizing the pizzas
 
-- please check the comment in pizza.html for detail changes.
+- please check the comment in main.js for detail changes.
 
 ---
 ## Guidance for using gulp to compress the project
