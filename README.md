@@ -3,7 +3,7 @@
 ### Getting started
 Some useful tips to help you get started:
 
-1. Check out the repository
+1. Check out the [repository](https://github.com/josephmax/web-optimization-project-for-nano-degree.git)
 2. To inspect the site on your phone, you can run a local server
 
   ```bash
